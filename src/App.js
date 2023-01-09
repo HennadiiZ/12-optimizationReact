@@ -6,6 +6,7 @@ import DemoOutput from './components/Demo/DemoOutput';
 
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
+  const [allowToggle, setAllowToggle] = useState(false);
 
   console.log('APP RUNNING');
 
@@ -14,8 +15,14 @@ function App() {
   // };
 
   const togglerHandler = useCallback(() => {
-    setShowParagraph((prevhowParagraph) => !prevhowParagraph);
-  }, []);
+    if (allowToggle) {
+      setShowParagraph((prevhowParagraph) => !prevhowParagraph);
+    }
+  }, [allowToggle]);
+
+  const allowToggleHandler = () => {
+    setAllowToggle(true);
+  };
 
   return (
     <div className="app">
@@ -23,7 +30,8 @@ function App() {
       <h1>Hi there!</h1>
       {/* {showParagraph && <p>This is New !!!</p>} */}
 
-      <DemoOutput show={false}/>
+      <DemoOutput show={showParagraph}/>
+      <Button onClick={allowToggleHandler}>Allow Toggling</Button>
       <Button onClick={togglerHandler}>Toggle</Button>
     </div>
   );
@@ -39,3 +47,5 @@ export default App;
 // 155 Preventing Unnecessary Re-Evaluations with React.memo()
 
 // 156 Preventing Function Re-Creation with useCallback()
+
+// 157 useCallback() and its Dependencies
