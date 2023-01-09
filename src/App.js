@@ -19,7 +19,7 @@ function App() {
       <h1>Hi there!</h1>
       {/* {showParagraph && <p>This is New !!!</p>} */}
 
-      <DemoOutput show={showParagraph}/>
+      <DemoOutput show={false}/>
       <Button onClick={togglerHandler}>Toggle</Button>
     </div>
   );
@@ -31,3 +31,5 @@ export default App;
 
 // 153 Component Updates In Action
 // 154 A Closer Look At Child Component Re-Evaluation
+
+// 155 Preventing Unnecessary Re-Evaluations with React.memo()
