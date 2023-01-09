@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import './App.css';
 import Button from './components/UI/Button/Button';
@@ -9,9 +9,13 @@ function App() {
 
   console.log('APP RUNNING');
 
-  const togglerHandler = () => {
+  // const togglerHandler = () => {
+  //   setShowParagraph((prevhowParagraph) => !prevhowParagraph);
+  // };
+
+  const togglerHandler = useCallback(() => {
     setShowParagraph((prevhowParagraph) => !prevhowParagraph);
-  };
+  }, []);
 
   return (
     <div className="app">
@@ -33,3 +37,5 @@ export default App;
 // 154 A Closer Look At Child Component Re-Evaluation
 
 // 155 Preventing Unnecessary Re-Evaluations with React.memo()
+
+// 156 Preventing Function Re-Creation with useCallback()
